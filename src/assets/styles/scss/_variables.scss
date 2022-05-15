@@ -1,0 +1,60 @@
+:root {
+  --body-bg: linear-gradient(45deg, #874da2 0%, #c43a30 100%);
+  --theme-bg-color: rgba(16 18 27 / 40%);
+  --border-color: rgba(113 119 144 / 25%);
+  --title-friend-color: #b3e0f5;
+  --theme-color: #f9fafb;
+  --inactive-color: rgba(159, 166, 191, 0.78);
+  --body-font: 'Montserrat', sans-serif;
+  --menu-bg: rgba(89, 94, 111, 0.3);
+  --hover-menu-bg: rgba(12 15 25 / 30%);
+  --content-title-color: #999ba5;
+  --content-bg: rgb(146 151 179 / 13%);
+  --button-inactive: rgb(249 250 251 / 55%);
+  --dropdown-bg: #21242d;
+  --dropdown-hover: rgb(42 46 60);
+  --popup-bg: rgb(22 25 37);
+  --search-bg: #1d1f36;
+  --overlay-bg: rgba(36, 39, 59, 0.3);
+  --scrollbar-bg: rgb(1 2 3 / 40%);
+  --button-close: #ff4d4d;
+
+  --button-bg: rgba(8, 13, 19, 0.713);
+
+  --popover-bg: rgb(228, 241, 255, 0.9);
+
+  --message-box: rgb(249 250 251 / 55%);
+  --my-message-box: rgba(177, 182, 207, 0.3);
+  --image-bg: url('https://raw.githubusercontent.com/SunHarry198/my-images/main/background/background-11.png');
+}
+
+.light-mode {
+  --body-bg: linear-gradient(to top, #a8edea 0%, #fed6e3 100%);
+  --theme-bg-color: rgb(255 255 255 / 31%);
+  --theme-color: #3c3a3a;
+  --inactive-color: #333333;
+  --button-inactive: #3c3a3a;
+  --search-bg: rgb(255 255 255 / 31%);
+  --dropdown-bg: #f7f7f7;
+  --overlay-bg: rgb(255 255 255 / 30%);
+  --dropdown-hover: rgb(236 236 236);
+  --border-color: rgb(255 255 255 / 35%);
+  --popup-bg: rgb(255 255 255);
+  --hover-menu-bg: rgba(255 255 255 / 35%);
+  --menu-bg: rgba(255, 255, 255, 0.601);
+  --scrollbar-bg: rgb(255 253 253 / 57%);
+  --content-title-color: --theme-color;
+  --content-bg: rgba(226, 229, 243, 0.13);
+  --title-friend-color: rgba(2, 30, 58, 0.9);
+
+  --button-bg: rgba(214, 234, 255, 0.4);
+  --message-box: rgb(120 248 255);
+  --my-message-box: rgba(255, 255, 255, 0.9);
+  --image-bg: url('https://raw.githubusercontent.com/SunHarry198/my-images/main/background/background-8.png');
+}
+
+$mobile-width: 600px;
+$tablet-width: 900px;
+$lap-width: 1024px;
+
+$font-family: 'Montserrat', sans-serif;

@@ -1,0 +1,345 @@
+@use 'src/assets/styles/scss' as *;
+
+.close_menu-mobile_background {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.7);
+  display: none;
+  &.active {
+    display: block;
+  }
+}
+.header {
+  @include flex(center, space-between);
+  flex-shrink: 0;
+  height: 58px;
+  width: 100%;
+  border-bottom: 1px solid var(--border-color);
+  padding: 0 30px;
+  white-space: nowrap;
+  position: relative;
+  z-index: 3;
+  @include mobile {
+    padding: 0 16px;
+  }
+  &-menu {
+    @include tablet {
+      position: fixed;
+      top: 0%;
+      left: 0;
+      width: 60%;
+      height: 100%;
+      background: black;
+      @include flex(center, center);
+      transform: translateX(-101%);
+      transition: transform 0.5s ease;
+    }
+    &.active-moblie {
+      @include tablet {
+        transform: translateX(0%);
+      }
+    }
+    > div {
+      @include flex(center, flex-start);
+      @include tablet {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+    }
+
+    a {
+      text-decoration: none;
+      color: var(--inactive-color);
+      border-bottom: 2px solid transparent;
+      transition: 0.3s;
+      article {
+        padding: 20px 30px;
+      }
+      @include tablet {
+        margin-left: 30vw;
+        margin-right: 30vw;
+        color: #ffffff;
+        &.is-active {
+          border-bottom: 2px solid var(--theme-color);
+        }
+      }
+      &.is-active,
+      &:hover {
+        color: var(--theme-color);
+        border-bottom: 2px solid var(--theme-color);
+      }
+    }
+  }
+}
+
+.notify {
+  position: relative;
+  &:before {
+    content: '';
+    position: absolute;
+    background-color: #3a6df0;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    right: 20px;
+    top: 16px;
+  }
+}
+
+.menu-circle {
+  width: 15px;
+  height: 15px;
+  background-color: #f96057;
+  border-radius: 50%;
+  box-shadow: 24px 0 0 0 #f8ce52, 48px 0 0 0 #5fcf65;
+  margin-right: 220px;
+  flex-shrink: 0;
+  @media screen and (max-width: 945px) {
+    display: none;
+  }
+}
+
+.search-bar {
+  height: 40px;
+  display: flex;
+  width: 100%;
+  max-width: 400px;
+  padding-left: 16px;
+  border-radius: 4px;
+  @include mobile {
+    height: auto;
+    width: 80vh;
+    form {
+      width: 100%;
+    }
+  }
+  input {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background-color: var(--search-bg);
+    border-radius: 4px;
+    font-family: var(--body-font);
+    font-size: 15px;
+    font-weight: 500;
+    padding: 0 15px;
+    box-shadow: 0 0 0 2px rgb(134 140 160 / 2%);
+    background-size: 14px;
+    background-repeat: no-repeat;
+    background-position: 16px 48%;
+    color: var(--theme-color);
+    @include mobile {
+      padding: 5px 10px;
+    }
+    &::placeholder {
+      font-family: var(--body-font);
+      color: var(--inactive-color);
+      font-size: 15px;
+      font-weight: 500;
+    }
+  }
+}
+
+.header-profile {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 0 0 40px;
+  flex-shrink: 0;
+  @include mobile {
+    padding: 0 0 0 10px;
+  }
+  svg {
+    width: 22px;
+    color: #f9fafb;
+    flex-shrink: 0;
+  }
+}
+
+.notification {
+  position: relative;
+  cursor: pointer;
+  &-number {
+    position: absolute;
+    background-color: #3a6df0;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    font-size: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    right: -6px;
+    top: -6px;
+  }
+  svg {
+    fill: var(--theme-color);
+  }
+  &.active-notification {
+    svg {
+      fill: #45aaf2;
+    }
+  }
+}
+
+.notification_popover {
+  position: fixed;
+  top: 50px;
+  right: 1rem;
+  background: var(--popover-bg);
+  border-radius: 5px;
+  // transform: translateX(-50%);
+  z-index: 3;
+  box-shadow: 0px 0px 5px 2px rgb(0, 0, 0, 0.3);
+  padding: 0.5rem 0.5rem 1rem 0.5rem;
+  overflow-y: scroll;
+  max-height: 310px;
+  width: 0;
+  overflow-x: hidden;
+  transform: translateY(100px);
+  opacity: 0;
+
+  &.active-notification {
+    transition: transform 0.2s ease, opacity 0.2s ease;
+    width: auto;
+    transform: translateY(0);
+    opacity: 1;
+  }
+  &::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.3);
+  }
+
+  &::-webkit-scrollbar {
+    width: 3px;
+    background: none;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--theme-bg-color);
+    border-radius: 5px;
+  }
+  &-title {
+    font-weight: 700;
+    color: rgba(0, 0, 0, 0.81);
+    border-bottom: 1px solid rgba(32, 30, 30, 0.81);
+  }
+}
+
+.profile-img {
+  position: relative;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--theme-color);
+  margin-left: 22px;
+  @include mobile {
+    margin-left: 0px;
+    display: none;
+  }
+}
+
+.wide {
+  .header-menu,
+  .header-profile {
+    display: none;
+  }
+  .search-bar {
+    max-width: 600px;
+    margin: auto;
+    transition: 0.4s;
+    box-shadow: 0 0 0 1px var(--border-color);
+    padding-left: 0;
+  }
+  .menu-circle {
+    margin-right: 0;
+  }
+}
+.logout-button {
+  margin-left: 1rem;
+  border: none;
+  background: none;
+  cursor: pointer;
+  svg {
+    width: 25px;
+    fill: var(--theme-color);
+    @include mobile {
+      width: 20px;
+    }
+  }
+}
+.nav-bar-mobile {
+  display: none;
+  @include tablet {
+    display: block;
+  }
+}
+.nav-bar-mobile-btn {
+  --color: #fff;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  margin: 0;
+  outline: none;
+  position: relative;
+  border: none;
+  background: none;
+  cursor: pointer;
+  -webkit-appearence: none;
+  -webkit-tap-highlight-color: transparent;
+  svg {
+    width: 64px;
+    height: 48px;
+    top: -6px;
+    left: -14px;
+    stroke: var(--color);
+    stroke-width: 4px;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    fill: none;
+    display: block;
+    position: absolute;
+    path {
+      transition: stroke-dasharray var(--duration, 0.85s) var(--easing, ease)
+          var(--delay, 0s),
+        stroke-dashoffset var(--duration, 0.85s) var(--easing, ease)
+          var(--delay, 0s);
+      stroke-dasharray: var(--array-1, 26px) var(--array-2, 100px);
+      stroke-dashoffset: var(--offset, 126px);
+      transform: translateZ(0);
+      &:nth-child(2) {
+        --duration: 0.7s;
+        --easing: ease-in;
+        --offset: 100px;
+        --array-2: 74px;
+      }
+      &:nth-child(3) {
+        --offset: 133px;
+        --array-2: 107px;
+      }
+    }
+  }
+  &.active {
+    svg {
+      path {
+        --offset: 57px;
+        &:nth-child(1),
+        &:nth-child(3) {
+          --delay: 0.15s;
+          --easing: cubic-bezier(0.2, 0.4, 0.2, 1.1);
+        }
+        &:nth-child(2) {
+          --duration: 0.4s;
+          --offset: 2px;
+          --array-1: 1px;
+        }
+        &:nth-child(3) {
+          --offset: 58px;
+        }
+      }
+    }
+  }
+}

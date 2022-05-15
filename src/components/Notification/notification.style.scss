@@ -1,0 +1,47 @@
+@use 'src/assets/styles/scss' as *;
+.notification--card {
+  @include flex(center, space-between);
+  padding: 0.5rem;
+  border-bottom: 0.5px solid var(--border-color);
+
+  &_image {
+    width: 55px;
+    margin-right: 0.7rem;
+    img {
+      width: 55px;
+      height: 55px;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+  }
+  &_title {
+    font-weight: 600;
+    color: rgba(8, 13, 19, 0.9);
+    width: 220px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    @include mobile {
+      width: 170px;
+    }
+  }
+  &_description {
+    font-size: 0.9rem;
+  }
+  &_button {
+    button {
+      padding: 3px 5px;
+      border: none;
+      border-radius: 2px;
+      cursor: pointer;
+      color: #ffffff;
+    }
+    .add-button {
+      margin-right: 5px;
+      background: #4a69bd;
+    }
+    .cancel-button {
+      background: #fa8231;
+    }
+  }
+}
